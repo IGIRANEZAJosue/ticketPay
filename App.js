@@ -9,8 +9,8 @@ import TicketCard from './components/TicketCard';
 const profileImage = require('./assets/julian-wan-unsplash-1.png');
 
 export default function App() {
-  return (
-    <SafeAreaView className="flex-1 flex-col gap-4 items-center pt-8 px-6 bg-[#f2f0f5]">
+   return (
+      <SafeAreaView className="flex-1 flex-col gap-4 items-center pt-8 px-6 bg-[#efeff1]">
          <Text className="text-4xl font-extrabold ">TicketPay</Text>
          <View className=" flex-row items-center bg-gray-200 rounded-xl w-full p-4">
             <Image className="mr-4" source={require("./assets/julian-wan-unsplash-1.png")} />
@@ -35,22 +35,21 @@ export default function App() {
 
          </View>
 
-         <ScrollView className=" w-full flex-col space-y-2 bg-[#f0f2f5] px-4 rounded-3xl py-4">
+         <View className=" w-full flex-col space-y-2 bg-[#f0f2f5] rounded-3xl py-4">
             <View className="flex-row justify-between items-center ">
                <Text className="text-2xl font-bold">Unpaid Tickets</Text>
                <Feather name="arrow-right-circle" size={24} color="black" />
             </View>
 
-            <ScrollView horizontal="true" className=" flex-row">
+            <ScrollView horizontal={true} View className=" flex-row space-x-4">
                <TicketCard />
                <TicketCard />
                <TicketCard />
             </ScrollView>
 
-         </ScrollView>
-      
-      <StatusBar style="auto" />
-    </SafeAreaView>
+         </View>
+         
+      </SafeAreaView>
   );
 }
 
