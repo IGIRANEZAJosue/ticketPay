@@ -3,7 +3,6 @@ import { SafeAreaView, Image, Text, View, ScrollView, FlatList } from 'react-nat
 
 //Icons
 import { Feather, AntDesign } from '@expo/vector-icons';
-import TicketCard from './components/TicketCard';
 import UnpaidTickets from './components/UnpaidTickets';
 
 
@@ -18,7 +17,7 @@ export default function App() {
                <View className="flex-1 flex-col gap-4 items-center pt-8 px-6">
                   <Text className="text-4xl font-extrabold text-[#6c63ff] ">TicketPay</Text>
                   
-                  <View className=" flex-row items-center bg-white rounded-xl w-full p-4">
+                  <View className=" flex-row items-center bg-white rounded-xl w-full p-4  shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px]">
                      <Image className="mr-4" source={require("./assets/julian-wan-unsplash-1.png")} />
                      <View className="flex-col justify-between">
                         <Text className=" font-bold text-2xl">IGIRANEZA Josue</Text>
@@ -27,12 +26,12 @@ export default function App() {
                   </View>
 
 
-                  <View className="flex-row justify-between items-center bg-[#6C63FF] w-full p-4 rounded-xl" >
+                  <View className="flex-row justify-between items-center bg-[#6C63FF] w-full p-4 rounded-xl " >
                   
-                     <View>
-                        <Text className="text-white">Total in tickets</Text>
-                        <Text className="text-white font-extrabold text-[48px]">175,000</Text>
-                        <Text className="text-white">RWF</Text>
+                     <View className=" space-y-1 ">
+                        <Text className="text-white font-bold ">Total in tickets</Text>
+                        <Text className="text-white font-black text-[48px]">175,000</Text>
+                        <Text className="text-white/80 text-[20px]">RWF</Text>
                      </View>
 
                      <View className=" flex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24">
