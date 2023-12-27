@@ -1,20 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, Image, Text, View, ScrollView } from 'react-native';
+import { SafeAreaView, Image, Text, View, ScrollView, FlatList } from 'react-native';
 
 //Icons
 import { Feather, AntDesign } from '@expo/vector-icons';
-import ProfileCard from './src/components/ProfileCard';
 import TicketCard from './components/TicketCard';
+import UnpaidTickets from './components/UnpaidTickets';
 
-const profileImage = require('./assets/julian-wan-unsplash-1.png');
 
 export default function App() {
+
+   
+
    return (
       <SafeAreaView className=" flex-1 bg-[#efeff1]">
          <StatusBar style="auto" />
             <ScrollView>
                <View className="flex-1 flex-col gap-4 items-center pt-8 px-6">
-                  <Text className="text-4xl font-extrabold ">TicketPay</Text>
+                  <Text className="text-4xl font-extrabold text-[#6c63ff] ">TicketPay</Text>
                   
                   <View className=" flex-row items-center bg-white rounded-xl w-full p-4">
                      <Image className="mr-4" source={require("./assets/julian-wan-unsplash-1.png")} />
@@ -45,15 +47,10 @@ export default function App() {
                         <Feather name="arrow-right-circle" size={24} color="black" />
                      </View>
 
-                     <ScrollView horizontal={true} View className=" flex-row space-x-4">
-                        <TicketCard />
-                        <TicketCard />
-                        <TicketCard />
-                        <TicketCard />
-                        <TicketCard />
-                     </ScrollView>
+                     <UnpaidTickets />
                      
                   </View>
+
 
                </View>
             </ScrollView>
