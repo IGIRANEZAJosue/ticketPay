@@ -1,6 +1,8 @@
 
+import { FlashList } from '@shopify/flash-list';
 import React from 'react';
 import {View, FlatList, Text} from 'react-native';
+
 
 const UnpaidTickets = () => {
 
@@ -68,20 +70,20 @@ const UnpaidTickets = () => {
 
    return (
       <View>
-         <FlatList 
+         <FlashList 
             horizontal
             data={TICKETS}
             renderItem={({item}) => (
-               <View className=" bg-white p-4 flex-col space-y-1 mr-4 rounded-xl border-[#dddde2] w-[180px] drop-shadow-2xl ">
+               <View className=" bg-white p-4 flex-col space-y-1 mr-4 rounded-xl border-[#dddde2] w-[180px] shadow-2xl ">
                   <Text className=" font-extrabold text-lg"> {item.licensePlate} </Text>
                   <Text className=" text-gray-500"> {item.date} </Text>
-                  <Text className=" font-bold text-lg text-gray-600">{item.violation}</Text>
+                  <Text className=" font-bold text-lg text-neutral-700">{item.violation}</Text>
                   <Text className=" text-lg font-extrabold">{item.amount}</Text>
                </View>
                )
             }
-
             keyExtractor={item => item.id}
+            estimatedItemSize={180}
 
          />
 

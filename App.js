@@ -31,7 +31,7 @@ export default function App() {
                   
                      <View>
                         <Text className="text-white">Total in tickets</Text>
-                        <Text className="text-white font-extrabold text-[48px]">75,000</Text>
+                        <Text className="text-white font-extrabold text-[48px]">175,000</Text>
                         <Text className="text-white">RWF</Text>
                      </View>
 
