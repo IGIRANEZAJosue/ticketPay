@@ -70,15 +70,15 @@ const UnpaidTickets = () => {
 
    return (
       <View>
-         <FlashList 
+         <FlashList
             horizontal
             data={TICKETS}
             renderItem={({item}) => (
-               <View className=" bg-white p-4 flex-col space-y-2 mr-4 rounded-xl border-[#dddde2] w-[200px] shadow-2xl ">
-                  <Text className=" font-extrabold text-[24px]">{item.licensePlate}</Text>
+               <View className=" bg-white p-4 flex-col space-y-2 mr-4 rounded-xl border-[#dddde2] w-[200px] shadow-xl ">
+                  <Text className=" font-extrabold text-[24px] text-gray-900">{item.licensePlate}</Text>
                   <Text className=" text-gray-500">{item.date}</Text>
-                  <Text className=" font-bold text-lg text-neutral-700">{item.violation}:</Text>
-                  <Text className=" text-[22px] font-extrabold">{item.amount}</Text>
+                  <Text className=" font-bold text-lg text-gray-900">{item.violation}:</Text>
+                  <Text className=" text-[22px] text-gray-900 font-extrabold">{item.amount}</Text>
                </View>
                )
             }
