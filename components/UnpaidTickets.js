@@ -74,7 +74,7 @@ const UnpaidTickets = () => {
             horizontal
             data={TICKETS}
             renderItem={({item}) => (
-               <View className=" bg-white p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg ">
+               <View className=" bg-[#f0f2f5] p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg ">
                   <Text className=" font-extrabold text-[24px] text-gray-900">{item.licensePlate}</Text>
                   <Text className=" text-gray-500">{item.date}</Text>
                   <Text className=" font-bold text-lg text-gray-900">{item.violation}:</Text>

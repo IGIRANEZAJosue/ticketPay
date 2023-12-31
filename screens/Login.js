@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
 
 const Login = () => {
@@ -8,25 +8,32 @@ const Login = () => {
 
    return (
       <View className=" my-8 px-4">
-         <Text className=" font-extrabold text-start text-[#5C54AD] text-5xl my-4">Login </Text>
+         <Text className=" font-extrabold text-center text-[#5C54AD] text-5xl my-4">Login </Text>
+         <Text className=" text-xl font-medium text-center">Welcome back to TicketPay</Text>
          
-         <Text className=" font-semibold text-lg mb-2 text-gray-800">Email</Text>
-         <TextInput 
-            label= "Email" 
-            mode="outlined" 
-            right={<TextInput.Icon icon="email-outline" color="gray" /> }
-            className=" mb-4 " 
-         />
-         
-         <Text className=" font-semibold text-lg mb-2 text-gray-800">Password</Text>
-         <TextInput 
-            label= "Password"  
-            mode="outlined"
-            secureTextEntry={passwordVisible}
-            right={
-               <TextInput.Icon onPress={() => {setPasswordVisible(!passwordVisible)}} icon={passwordVisible? "eye-off" : "eye"} color="gray" />
-            }  
-         />
+         <View className="my-6">
+            <Text className=" font-semibold text-lg mb-2 text-gray-800">Email</Text>
+            <TextInput 
+               label= "Email" 
+               mode="outlined" 
+               right={<TextInput.Icon icon="email-outline" color="gray" /> }
+               className=" mb-4 " 
+            />
+            
+            <Text className=" font-semibold text-lg mb-2 text-gray-800">Password</Text>
+            <TextInput 
+               label= "Password"
+               mode="outlined"
+               secureTextEntry={passwordVisible}
+               right={
+                  <TextInput.Icon onPress={() => {setPasswordVisible(!passwordVisible)}} icon={passwordVisible? "eye-off" : "eye"} color="gray" />
+               }  
+            />
+         </View>
+
+         <View>
+            <Text>Forgot password?</Text>
+         </View>
 
 
 
