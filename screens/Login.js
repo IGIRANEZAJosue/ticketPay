@@ -5,6 +5,7 @@ import { TextInput, Button } from 'react-native-paper'
 const Login = () => {
 
    const [passwordVisible, setPasswordVisible] = useState (true);
+   const [checked, setChecked] = useState(false);
 
    return (
       <View className=" my-8 px-4">
@@ -32,6 +33,12 @@ const Login = () => {
          </View>
 
          <View>
+            <Checkbox
+               status={checked ? 'checked' : 'unchecked'}
+               onPress={() => {
+                  setChecked(!checked);
+               }}
+            />
             <Text>Forgot password?</Text>
          </View>
 
