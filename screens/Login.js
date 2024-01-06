@@ -11,8 +11,8 @@ const Login = () => {
       <View className=" min-h-screen bg-primary">
 
          <View className="flex-1 justify-center">   
-            <Text className=" font-extrabold text-center text-white text-5xl my-4">TicketPay</Text>
-            <Text className=" text-xl font-extrabold text-center text-white">Welcome Back</Text>
+            <Text className=" font-extrabold text-center text-white text-6xl my-4">TicketPay</Text>
+            <Text className=" text-2xl font-extrabold text-center text-white mt-8">Welcome Back</Text>
             <Text className=" font-medium text-center text-white">Sign in to continue</Text>
          </View>
          
@@ -53,7 +53,7 @@ const Login = () => {
                <Text className=" text-[16px] text-white font-bold">LOGIN</Text>
             </TouchableOpacity>
 
-            <View className="flex-row space-x-1">
+            <View className="flex-row justify-center space-x-1">
                <Text>Dont have an account?</Text> 
                <Pressable>
                   <Text className=" text-primary ">Create a new account</Text>
