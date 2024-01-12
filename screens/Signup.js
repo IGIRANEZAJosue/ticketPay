@@ -20,6 +20,20 @@ const Signup = () => {
          
          <View className=" flex-2 px-8 bg-white rounded-t-[32px] pt-6 pb-6">
             <TextInput 
+               label= "Name" 
+               mode="outlined" 
+               right={<TextInput.Icon icon="user" color="#6c63ff" /> }
+               className=" mb-6 " 
+            />
+            
+            <TextInput 
+               label= "Phone Number" 
+               mode="outlined" 
+               right={<TextInput.Icon icon="numeric" color="#6c63ff" /> }
+               className=" mb-6 " 
+            />
+            
+            <TextInput 
                label= "Email" 
                mode="outlined" 
                right={<TextInput.Icon icon="email-outline" color="#6c63ff" /> }
@@ -52,7 +66,7 @@ const Signup = () => {
             </View>
 
             <TouchableOpacity className=" w-full justify-center items-center py-4 bg-primary rounded-lg my-4">
-               <Text className=" text-[16px] text-white font-bold">LOGIN</Text>
+               <Text className=" text-[16px] text-white font-bold">REGISTER</Text>
             </TouchableOpacity>
 
             <View className="flex-row justify-center space-x-1">
