@@ -13,7 +13,7 @@ const Login = () => {
          <View className="flex-1 justify-center">   
             <Text className=" font-extrabold text-center text-white text-6xl my-4">TicketPay</Text>
             <Text className=" text-2xl font-extrabold text-center text-white mt-8">Welcome Back</Text>
-            <Text className=" font-medium text-center text-white">Sign in to continue</Text>
+            <Text className=" font-medium text-lg text-center text-white mt-4">Sign in to continue</Text>
          </View>
          
          <View className=" flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6">

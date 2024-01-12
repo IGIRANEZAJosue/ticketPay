@@ -4,6 +4,7 @@ import { PaperProvider } from 'react-native-paper';
 
 import Home from './screens/Home';
 import Login from './screens/Login';
+import Signup from './screens/Signup';
 
 
 export default function App() {
@@ -11,11 +12,12 @@ export default function App() {
 
    return (
       <SafeAreaView className=" flex-1 bg-white">
-         <StatusBar style="auto" />
+         <StatusBar style="dark" />
          
          <ScrollView>
             <Home />
             <Login />
+            <Signup />
          </ScrollView>
 
       </SafeAreaView>
