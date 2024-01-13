@@ -8,9 +8,9 @@ import UnpaidTickets from '../components/UnpaidTickets';
 const Home = () => {
    return (
       <View>
-         <View className="flex-1 flex-col items-center space-y-1 pt-4  px-3  ">
+         <View className="flex-1 flex-col items-center space-y-1 pt-4 px-3 min-h-screen ">
             
-            <Text className="text-4xl font-extrabold text-primary my-6 ">TicketPay</Text>
+            <Text style={{fontFamily: "Poppins"}} className="text-4xl font-extrabold text-primary my-6 ">TicketPay</Text>
             
             <View className=" flex-row items-center bg-[#f0f3f5] rounded-2xl w-full p-4 mb-4 mx-4 shadow-sm">
                <Image className="mr-4" source={require("../assets/julian-wan-unsplash-1.png")} />
