@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 
 import Home from './screens/Home';
 import Login from './screens/Login';
+import Signup from './screens/Signup';
 
 
 export default function App() {
@@ -19,12 +20,13 @@ export default function App() {
 
    return (
       <SafeAreaView className=" flex-1 bg-white">
-         <StatusBar style="auto" />
+         <StatusBar style="dark" />
          
          <ScrollView>
             <Text style={{fontFamily: "Poppins"}} className="text-center mt-8">Hello</Text>
             <Home />
             <Login />
+            <Signup />
          </ScrollView>
 
       </SafeAreaView>
