@@ -10,7 +10,18 @@ import {
 
 export default () => {
    return (
-      <Tabs>
+      <Tabs screenOptions={{
+         tabBarStyle: {
+            height: 56,
+            paddingVertical: 6,
+         },
+         tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: "bold",
+            marginBottom: 4,
+         }
+      }}>
+
          <Tabs.Screen
             name="home"
             options={{
