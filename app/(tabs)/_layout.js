@@ -80,7 +80,7 @@ export default () => {
          />
 
          <Tabs.Screen
-            name="login"
+            name="profile"
             options={{
                headerShown:false,
                tabBarIcon: ({ color, focused }) => (

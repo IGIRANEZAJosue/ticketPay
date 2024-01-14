@@ -1,7 +1,11 @@
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
 import { View, StyleSheet, Text, ScrollView, TouchableOpacity, } from "react-native";
+import { FontAwesome } from '@expo/vector-icons';
 import tw from "twrnc";
+import { router } from "expo-router";
+
+router
 
 const Tickets = () => {
 
@@ -90,6 +94,13 @@ const Tickets = () => {
    
    return (
       <ScrollView style={tw` bg-[#f0f2f5] px-4 pt-4`}>
+
+         <View style={tw`flex-row justify-between items-center mb-4 `}>
+            <FontAwesome name="chevron-left" size={20} color="black" onPress={() => router.back()}  />
+            <Text style={tw`text-[20px] font-bold text-black`}>Unpaid tickets</Text>
+            <View></View>
+         </View>
+
          <FlashList
             data={TICKETS}
             renderItem={({item}) => (
@@ -117,6 +128,7 @@ const Tickets = () => {
                )
             }
             keyExtractor={item => item.id}
+            estimatedItemSize={160}
 
          />
       </ScrollView>

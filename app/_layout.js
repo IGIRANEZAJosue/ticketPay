@@ -1,6 +1,5 @@
 import "../global.css"
 
-
 const { Stack } = require("expo-router")
 
 const StackLayout = () => {

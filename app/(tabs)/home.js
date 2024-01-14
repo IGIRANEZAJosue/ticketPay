@@ -35,15 +35,15 @@ const Home = () => {
                </View>
 
                <Link href={"./pay"}>
-               <View style={tw`lex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24`} className=" flex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24">
-                  <Text style={tw`text-white text-lg font-extrabold`} className="text-white text-lg font-extrabold">Pay</Text>
-               </View>
+                  <View style={tw`lex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24`} className=" flex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24">
+                     <Text style={tw`text-white text-lg font-extrabold`} className="text-white text-lg font-extrabold">Pay</Text>
+                  </View>
                </Link>
                
             </View>
 
             <View style={tw` w-full flex-col rounded-3xl mt-4 `} className=" w-full flex-col rounded-3xl mt-4 ">
-               <View style={tw`flex-row justify-between items-center mb-3 px-4`} className="flex-row justify-between items-center mb-3 px-4">
+               <View style={tw`flex-row justify-between items-center mb-3 px-1`} className="flex-row justify-between items-center mb-3 px-4">
                   <Text style={tw`text-2xl font-bold`} className="text-2xl font-bold">Unpaid Tickets</Text>
                   <Link href={"./tickets"}>
                      <Feather
