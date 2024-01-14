@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Pressable, Text, View, TouchableOpacity } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler';
 import { TextInput, Checkbox } from 'react-native-paper'
+
+import tw from 'twrnc';
 
 const Login = () => {
 
@@ -8,11 +11,11 @@ const Login = () => {
    const [checked, setChecked] = useState(false);
 
    return (
-      <View className=" min-h-screen bg-primary">
+      <ScrollView style={tw`min-h-screen bg-[#6c63ff]`} className=" min-h-screen bg-[#6c63ff]">
 
-         <View className="flex-1 justify-center">   
-            <Text className=" font-extrabold text-center text-white text-6xl my-4">TicketPay</Text>
-            <Text className=" text-2xl font-extrabold text-center text-white mt-8">Welcome Back</Text>
+         <View style={tw`flex-1 justify-center`} className="flex-1 justify-center">   
+            <Text style={tw`font-extrabold text-center text-white text-6xl my-4`} className=" font-extrabold text-center text-white text-6xl my-4">TicketPay</Text>
+            <Text style={tw`text-2xl font-extrabold text-center text-white mt-8`} className=" text-2xl font-extrabold text-center text-white mt-8">Welcome Back</Text>
             <Text className=" font-medium text-lg text-center text-white mt-4">Sign in to continue</Text>
          </View>
          
@@ -71,7 +74,7 @@ const Login = () => {
 
 
 
-      </View>
+      </ScrollView>
    )
 }
 

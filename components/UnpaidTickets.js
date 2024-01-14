@@ -2,7 +2,7 @@
 import { FlashList } from '@shopify/flash-list';
 import React from 'react';
 import {View, Text} from 'react-native';
-
+import tw from "twrnc";
 
 const UnpaidTickets = () => {
 
@@ -74,11 +74,11 @@ const UnpaidTickets = () => {
             horizontal
             data={TICKETS}
             renderItem={({item}) => (
-               <View className=" bg-[#f0f2f5] p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg ">
-                  <Text className=" font-extrabold text-[24px] text-gray-900">{item.licensePlate}</Text>
-                  <Text className=" text-gray-500">{item.date}</Text>
-                  <Text className=" font-bold text-lg text-gray-900">{item.violation}:</Text>
-                  <Text className=" text-[22px] text-gray-900 font-extrabold">{item.amount}</Text>
+               <View style={tw`bg-[#f0f2f5] p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg `} className=" bg-[#f0f2f5] p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg ">
+                  <Text style={tw` font-extrabold text-[24px] text-gray-900`} className=" font-extrabold text-[24px] text-gray-900">{item.licensePlate}</Text>
+                  <Text style={tw` text-gray-500 `} className=" text-gray-500">{item.date}</Text>
+                  <Text style={tw`font-bold text-lg text-gray-900`} className=" font-bold text-lg text-gray-900">{item.violation}:</Text>
+                  <Text style={tw`text-[22px] text-gray-900 font-extrabold`} className=" text-[22px] text-gray-900 font-extrabold">{item.amount}</Text>
                </View>
                )
             }
