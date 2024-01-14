@@ -9,8 +9,8 @@ import tw from 'twrnc';
 
 const Home = () => {
    return (
-      <ScrollView style={tw` bg-white `}>
-         <View style={tw`flex-1 flex-col items-center space-y-1 pt-4 px-3 min-h-screen `} className="flex-1 flex-col items-center space-y-1 pt-4 px-3 min-h-screen ">
+      <ScrollView style={tw` bg-white`}>
+         <View style={tw`flex-1 flex-col items-center space-y-1 pt-4 px-3 `} className="flex-1 flex-col items-center space-y-1 pt-4 px-3 min-h-screen ">
             <Text style={tw` text-4xl font-extrabold text-[#6c63ff] my-6 `} className="text-4xl font-extrabold text-primary my-6 ">
                TicketPay
             </Text>
@@ -34,9 +34,12 @@ const Home = () => {
                   <Text style={tw`text-white/80 text-[20px]`} className="text-white/80 text-[20px]">RWF</Text>
                </View>
 
+               <Link href={"./pay"}>
                <View style={tw`lex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24`} className=" flex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24">
                   <Text style={tw`text-white text-lg font-extrabold`} className="text-white text-lg font-extrabold">Pay</Text>
                </View>
+               </Link>
+               
             </View>
 
             <View style={tw` w-full flex-col rounded-3xl mt-4 `} className=" w-full flex-col rounded-3xl mt-4 ">

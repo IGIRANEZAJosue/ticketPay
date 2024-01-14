@@ -20,6 +20,7 @@ const Login = () => {
          </View>
          
          <View style={tw`flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6`} className=" flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6">
+            
             <TextInput 
                label= "Email" 
                mode="outlined" 
@@ -38,6 +39,7 @@ const Login = () => {
             />
 
             <View style={tw`flex-row items-center justify-between`} className="flex-row items-center justify-between">
+               
                <View style={tw`flex-row items-center -ml-2`} className="flex-row items-center -ml-2">
                   <Checkbox
                      status={checked ? 'checked' : 'unchecked'}
@@ -48,9 +50,11 @@ const Login = () => {
                   />
                   <Text style={tw`text-[14px] -ml-1`} className="text-[14px] -ml-1">Remember me</Text>
                </View>
+
                <Pressable>
                   <Text style={tw`text-[#6c63ff]`} className=" text-[#6c63ff]">Forgot password?</Text>
                </Pressable>
+
             </View>
 
             <TouchableOpacity style={tw`w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4`} className=" w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4">
@@ -67,11 +71,6 @@ const Login = () => {
 
 
          </View>
-
-        
-
-
-
 
 
 

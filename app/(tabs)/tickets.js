@@ -93,28 +93,30 @@ const Tickets = () => {
          <FlashList
             data={TICKETS}
             renderItem={({item}) => (
-               <View style={tw` flex-row mb-4 rounded-[16px] items-center w-full gap-4 bg-[#fff] p-4`}>
-                  <View style={tw` bg-[#6c63ff] flex-col items-center justify-center rounded-[22px] h-[110px] w-[100px]   `}>
+               <View style={tw` h-[144px] flex-row mb-4 rounded-[16px] items-center w-full gap-4 bg-[#fff] p-4`}>
+                  
+                  <View style={tw` bg-[#6c63ff]/90 flex-col items-center justify-center rounded-[22px] h-[110px] w-[100px]   `}>
                      <Text style={tw`text-[24px] text-white font-bold `}>{item.day}</Text>
                      <Text style={tw`text-[24px] text-white font-bold `}>{item.month}</Text>
                   </View>
+                  
                   <View>
                      <Text style={tw`font-bold text-xl text-gray-900`} className=" font-bold text-lg text-gray-900">{item.violation}:</Text>
                      <Text style={tw`text-[18px] text-gray-900 font-extrabold`} className=" text-[22px] text-gray-900 font-extrabold">{item.amount}</Text>
                      <View style={tw` flex-row gap-4 mt-4`}>
-                        <TouchableOpacity style={tw` bg-[#6c63ff] rounded-full px-5 py-1  `}>
+                        <TouchableOpacity style={tw` bg-[#6c63ff]/90 rounded-full px-5 py-1  `}>
                            <Text style={tw`text-white text-sm `}>Pay</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={tw` border-2 border-gray-600 px-4 rounded-full `}>
-                           <Text style={tw`text-sm `}>Details</Text>
+                           <Text  style={tw`text-sm `}>Details</Text>
                         </TouchableOpacity>
                      </View>
                   </View>
+
                </View>
                )
             }
             keyExtractor={item => item.id}
-            estimatedItemSize={300}
 
          />
       </ScrollView>

@@ -14,6 +14,7 @@ export default () => {
          <Tabs.Screen
             name="home"
             options={{
+               headerShown:false,
                tabBarIcon: ({ color, focused }) => (
                   <Octicons
                      name={focused ? "home" : "home"}
@@ -30,6 +31,7 @@ export default () => {
          <Tabs.Screen
             name="tickets"
             options={{
+               headerShown:false,
                tabBarIcon: ({ color, focused }) => (
                   <MaterialCommunityIcons
                      name={
@@ -47,8 +49,29 @@ export default () => {
          />
 
          <Tabs.Screen
+            name="pay"
+            options={{
+               headerShown:false,
+               tabBarIcon: ({ color, focused }) => (
+                  <FontAwesome
+                     name={
+                        focused
+                           ? "credit-card-alt"
+                           : "credit-card"
+                     }
+                     size={26}
+                     color={color}
+                  />
+               ),
+               tabBarLabel: "Pay",
+               tabBarActiveTintColor: "#6c63ff",
+            }}
+         />
+
+         <Tabs.Screen
             name="login"
             options={{
+               headerShown:false,
                tabBarIcon: ({ color, focused }) => (
                   <FontAwesome5
                      name={focused ? "user-alt" : "user"}
