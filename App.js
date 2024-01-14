@@ -10,20 +10,19 @@ import Signup from './screens/Signup';
 
 export default function App() {
 
-   const [loaded] = useFonts({
-      Poppins: require("./assets/fonts/Poppins-Regular.ttf")
-   })
+   // const [loaded] = useFonts({
+   //    Poppins: require("./assets/fonts/Poppins-Regular.ttf")
+   // })
 
-   if (!loaded) {
-      return null;
-   }
+   // if (!loaded) {
+   //    return null;
+   // }
 
    return (
       <SafeAreaView className=" flex-1 bg-white">
          <StatusBar style="dark" />
          
          <ScrollView>
-            <Text style={{fontFamily: "Poppins"}} className="text-center mt-8">Hello</Text>
             <Home />
             <Login />
             <Signup />
