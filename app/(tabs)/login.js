@@ -14,17 +14,18 @@ const Login = () => {
       <ScrollView style={tw`min-h-screen bg-[#6c63ff]`} className=" min-h-screen bg-[#6c63ff]">
 
          <View style={tw`flex-1 justify-center`} className="flex-1 justify-center">   
-            <Text style={tw`font-extrabold text-center text-white text-6xl my-4`} className=" font-extrabold text-center text-white text-6xl my-4">TicketPay</Text>
-            <Text style={tw`text-2xl font-extrabold text-center text-white mt-8`} className=" text-2xl font-extrabold text-center text-white mt-8">Welcome Back</Text>
-            <Text className=" font-medium text-lg text-center text-white mt-4">Sign in to continue</Text>
+            <Text style={tw`font-extrabold text-center text-white text-5xl my-4`} className=" font-extrabold text-center text-white text-6xl my-4">TicketPay</Text>
+            <Text style={tw`text-2xl font-extrabold text-center text-white mt-5`} className=" text-2xl font-extrabold text-center text-white mt-8">Welcome Back</Text>
+            <Text style={tw`font-medium text-lg text-center text-white mt-4`} className=" font-medium text-lg text-center text-white mt-4">Sign in to continue</Text>
          </View>
          
-         <View className=" flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6">
+         <View style={tw`flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6`} className=" flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6">
             <TextInput 
                label= "Email" 
                mode="outlined" 
                right={<TextInput.Icon icon="email-outline" color="#6c63ff" /> }
                className=" mb-6 " 
+               style={tw`mb-6`}
             />
             
             <TextInput 
@@ -36,8 +37,8 @@ const Login = () => {
                }  
             />
 
-            <View className="flex-row items-center justify-between">
-               <View className="flex-row items-center -ml-2">
+            <View style={tw`flex-row items-center justify-between`} className="flex-row items-center justify-between">
+               <View style={tw`flex-row items-center -ml-2`} className="flex-row items-center -ml-2">
                   <Checkbox
                      status={checked ? 'checked' : 'unchecked'}
                      onPress={() => {
@@ -45,21 +46,21 @@ const Login = () => {
                      }}
                      color='#6c63ff'
                   />
-                  <Text className="text-[14px] -ml-1">Remember me</Text>
+                  <Text style={tw`text-[14px] -ml-1`} className="text-[14px] -ml-1">Remember me</Text>
                </View>
                <Pressable>
-                  <Text className=" text-primary">Forgot password?</Text>
+                  <Text style={tw`text-[#6c63ff]`} className=" text-[#6c63ff]">Forgot password?</Text>
                </Pressable>
             </View>
 
-            <TouchableOpacity className=" w-full justify-center items-center py-4 bg-primary rounded-lg my-4">
-               <Text className=" text-[16px] text-white font-bold">LOGIN</Text>
+            <TouchableOpacity style={tw`w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4`} className=" w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4">
+               <Text style={tw`text-[16px] text-white font-bold`} className=" text-[16px] text-white font-bold">LOGIN</Text>
             </TouchableOpacity>
 
-            <View className="flex-row justify-center space-x-1">
+            <View style={tw`flex-row justify-center`} className="flex-row justify-center space-x-1">
                <Text>Dont have an account?</Text> 
                <Pressable>
-                  <Text className=" text-primary ">Create a new account</Text>
+                  <Text style={tw`text-[#6c63ff]`} className=" text-[#6c63ff] ">Create a new account</Text>
                </Pressable>
             </View>
 
