@@ -74,7 +74,7 @@ const UnpaidTickets = () => {
             horizontal
             data={TICKETS}
             renderItem={({item}) => (
-               <View style={tw`bg-[#f0f2f5] p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg `} className=" bg-[#f0f2f5] p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg ">
+               <View style={tw`bg-[#f0f2f5] p-4 flex-col gap-1 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg `} className=" bg-[#f0f2f5] p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg ">
                   <Text style={tw` font-extrabold text-[24px] text-gray-900`} className=" font-extrabold text-[24px] text-gray-900">{item.licensePlate}</Text>
                   <Text style={tw` text-gray-500 `} className=" text-gray-500">{item.date}</Text>
                   <Text style={tw`font-bold text-lg text-gray-900`} className=" font-bold text-lg text-gray-900">{item.violation}:</Text>
