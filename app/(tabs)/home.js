@@ -31,8 +31,8 @@ const Home = () => {
                   <Text style={tw`text-white font-black text-[48px]`} className="text-white font-black text-[48px]">
                      175,000
                   </Text>
-                  <Text style={tw`text-white/6
-                  0 font-bold text-[20px]`} className="text-white/80 text-[20px]">RWF</Text>
+                  <Text style={tw`text-white/60
+                  font-bold text-[20px]`} className="text-white/80 text-[20px]">RWF</Text>
                </View>
 
                <Link href={"./pay"}>
