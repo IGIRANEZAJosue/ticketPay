@@ -10,7 +10,7 @@ import tw from 'twrnc';
 const Home = () => {
    return (
       <ScrollView style={tw` bg-white`}>
-         <View style={tw`flex-1 flex-col items-center space-y-1 pt-4 px-3 `} className="flex-1 flex-col items-center space-y-1 pt-4 px-3 min-h-screen ">
+         <View style={tw`flex-1 flex-col items-center gap-1 pt-4 px-3 `} className="flex-1 flex-col items-center space-y-1 pt-4 px-3 min-h-screen ">
             <Text style={tw` text-4xl font-extrabold text-[#6c63ff] my-6 `} className="text-4xl font-extrabold text-primary my-6 ">
                TicketPay
             </Text>

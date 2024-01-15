@@ -129,7 +129,7 @@ const Tickets = () => {
             }
             keyExtractor={item => item.id}
             estimatedItemSize={160}
-
+            
          />
       </ScrollView>
    );
