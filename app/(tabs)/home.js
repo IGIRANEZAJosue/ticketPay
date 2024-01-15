@@ -19,7 +19,7 @@ const Home = () => {
                <Image style={tw`mr-4`} className="mr-4" source={require("../../assets/julian-wan-unsplash-1.png")} />
                <View style={tw` flex-col justify-between `} className="flex-col justify-between">
                   <Text style={tw` font-bold text-2xl `} className=" font-bold text-2xl">IGIRANEZA Josue</Text>
-                  <Text style={tw` text-gray-500 `} className=" text-gray-500">1200280067228063</Text>
+                  <Text style={tw` text-gray-500 `} className=" text-gray-500">Welcome back!</Text>
                </View>
             </View>
 

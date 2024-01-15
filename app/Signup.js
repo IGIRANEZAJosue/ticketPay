@@ -4,11 +4,27 @@ import { Pressable, Text, View, TouchableOpacity, ScrollView } from "react-nativ
 import { TextInput, Checkbox } from "react-native-paper";
 import tw from 'twrnc';
 
+import { registerUser } from './database';
 
 
 const Signup = () => {
+
+   const [username, setUsername] = useState('');
+   const [password, setPassword] = useState('');
+
    const [passwordVisible, setPasswordVisible] = useState(true);
    const [checked, setChecked] = useState(false);
+
+   const handleRegistration = async () => {
+      const success = await registerUser(username, password);
+      if (success) {
+        // Handle registration success (e.g., navigate to login or homepage)
+        router.replace('/home'); // Navigate to login screen, for example
+      } else {
+        // Handle registration error
+         console.log('Error registering')
+      }
+    };
 
    return (
       <ScrollView style={tw` bg-[#6c63ff]`} className=" min-h-screen bg-primary">
@@ -30,6 +46,8 @@ const Signup = () => {
          <View style={tw` px-8 bg-white rounded-t-[32px] pt-6 pb-6`} className=" flex-2 px-8 bg-white rounded-t-[32px] pt-6 pb-6">
             <TextInput
                label="Name"
+               value={username}
+               onChangeText={setUsername}
                mode="outlined"
                right={<TextInput.Icon icon="account" color="#6c63ff" />}
                className=" mb-6 "
@@ -47,8 +65,9 @@ const Signup = () => {
 
             <TextInput
                label="Password"
+               value={password}
+               onChangeText={setPassword}
                mode="outlined"
-               style={tw``}
                secureTextEntry={passwordVisible}
                right={
                   <TextInput.Icon
@@ -77,7 +96,7 @@ const Signup = () => {
                </Pressable>
             </View>
 
-            <TouchableOpacity style={tw`w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4`} className=" w-full justify-center items-center py-4 bg-primary rounded-lg my-4">
+            <TouchableOpacity onPress={handleRegistration} style={tw`w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4`} className=" w-full justify-center items-center py-4 bg-primary rounded-lg my-4">
                <Text style={tw`text-[16px] text-white font-bold`} className=" text-[16px] text-white font-bold">
                   REGISTER
                </Text>

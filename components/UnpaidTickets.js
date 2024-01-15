@@ -69,7 +69,7 @@ const UnpaidTickets = () => {
     }]
 
    return (
-      <View >
+      <View style={tw`w-full`} >
          <FlashList
             horizontal
             data={TICKETS}
