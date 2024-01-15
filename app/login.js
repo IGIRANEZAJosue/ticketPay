@@ -1,3 +1,4 @@
+import { router, useRouter } from 'expo-router';
 import React, { useState } from 'react'
 import { Pressable, Text, View, TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
@@ -7,19 +8,20 @@ import tw from 'twrnc';
 
 const Login = () => {
 
+   
+
    const [passwordVisible, setPasswordVisible] = useState (true);
    const [checked, setChecked] = useState(false);
 
    return (
-      <ScrollView style={tw`min-h-screen bg-[#6c63ff]`} className=" min-h-screen bg-[#6c63ff]">
-
-         <View style={tw`flex-1 justify-center`} className="flex-1 justify-center">   
+      <ScrollView style={tw` flex-col bg-[#6c63ff]`} className=" min-h-screen bg-[#6c63ff]">
+         <View style={tw` justify-center min-h-[320px] mb-8 `} className="flex-1 justify-center">   
             <Text style={tw`font-extrabold text-center text-white text-5xl my-4`} className=" font-extrabold text-center text-white text-6xl my-4">TicketPay</Text>
             <Text style={tw`text-2xl font-extrabold text-center text-white mt-5`} className=" text-2xl font-extrabold text-center text-white mt-8">Welcome Back</Text>
             <Text style={tw`font-medium text-lg text-center text-white mt-4`} className=" font-medium text-lg text-center text-white mt-4">Sign in to continue</Text>
          </View>
          
-         <View style={tw`flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6`} className=" flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6">
+         <View style={tw` px-8 bg-white rounded-t-[32px] pt-10 pb-6`} className=" flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6">
             
             <TextInput 
                label= "Email" 
@@ -57,13 +59,13 @@ const Login = () => {
 
             </View>
 
-            <TouchableOpacity style={tw`w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4`} className=" w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4">
+            <TouchableOpacity onPress={()=> router.replace("/home")} style={tw`w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4`} className=" w-full justify-center items-center py-4 bg-[#6c63ff] rounded-lg my-4">
                <Text style={tw`text-[16px] text-white font-bold`} className=" text-[16px] text-white font-bold">LOGIN</Text>
             </TouchableOpacity>
 
             <View style={tw`flex-row justify-center`} className="flex-row justify-center space-x-1">
                <Text>Dont have an account?</Text> 
-               <Pressable>
+               <Pressable onPress={() => router.push("./Signup")}>
                   <Text style={tw`text-[#6c63ff]`} className=" text-[#6c63ff] ">Create a new account</Text>
                </Pressable>
             </View>
@@ -71,7 +73,6 @@ const Login = () => {
 
 
          </View>
-
 
 
       </ScrollView>

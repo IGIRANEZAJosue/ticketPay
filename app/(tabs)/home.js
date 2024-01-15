@@ -24,14 +24,15 @@ const Home = () => {
             </View>
 
             <View style={tw` flex-row justify-between items-center bg-[#6c63ff] w-full p-4 mb-4 rounded-2xl `} className="flex-row justify-between items-center bg-primary w-full p-4 mb-4 rounded-2xl ">
-               <View style={tw`space-y-1 `} className=" space-y-1 ">
+               <View style={tw`gap-1`} className=" space-y-1 ">
                   <Text style={tw`text-white/80 text-[20px] font-bold `} className="text-white/80 text-[20px] font-bold ">
                      Total in tickets
                   </Text>
                   <Text style={tw`text-white font-black text-[48px]`} className="text-white font-black text-[48px]">
                      175,000
                   </Text>
-                  <Text style={tw`text-white/80 text-[20px]`} className="text-white/80 text-[20px]">RWF</Text>
+                  <Text style={tw`text-white/6
+                  0 font-bold text-[20px]`} className="text-white/80 text-[20px]">RWF</Text>
                </View>
 
                <Link href={"./pay"}>

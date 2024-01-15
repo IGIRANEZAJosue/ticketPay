@@ -13,7 +13,11 @@ const profile = () => {
          </Text>
 
          <View style={tw` justify-center items-center`}>
-            <Image style={tw`h-[120px] w-[120px]`} source={require("../../assets/julian-wan-unsplash-1.png")} />
+            <Image style={tw`h-[120px] w-[120px] mt-6`} source={require("../../assets/julian-wan-unsplash-1.png")} />
+            <View>
+               <Text>IGIRANEZA Josue</Text>
+               <Text>1200280067228063</Text>
+            </View>
          </View>
 
       </View>
