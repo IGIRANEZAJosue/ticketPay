@@ -21,7 +21,7 @@ const StackLayout = () => {
    return (
       <Stack>
          {user ? (
-            <Stack.Screen name="(tabs)" />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
          ) : (
             <Stack.Screen name="index" />
          )}

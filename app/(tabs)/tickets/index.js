@@ -4,6 +4,7 @@ import { View, StyleSheet, Text, ScrollView, TouchableOpacity, } from "react-nat
 import { FontAwesome } from '@expo/vector-icons';
 import tw from "twrnc";
 import { router } from "expo-router";
+import { Button } from "react-native-paper";
 
 router
 
@@ -93,7 +94,7 @@ const Tickets = () => {
    
    
    return (
-      <ScrollView style={tw` bg-[#f0f2f5] px-4 pt-4`}>
+      <ScrollView style={tw` flex-1 bg-[#f0f2f5] px-4 pt-4`}>
 
          <View style={tw`flex-row justify-between items-center mb-4 `}>
             <FontAwesome name="chevron-left" size={20} color="black" onPress={() => router.back()}  />
@@ -101,10 +102,11 @@ const Tickets = () => {
             <View></View>
          </View>
 
+
          <FlashList
             data={TICKETS}
             renderItem={({item}) => (
-               <View style={tw` h-[144px] flex-row mb-4 rounded-[16px] items-center w-full gap-4 bg-[#fff] p-4`}>
+               <View onPress={() => router.push("/(tabs)/tickets/details")} style={tw` h-[144px] flex-row mb-4 rounded-[16px] items-center w-full gap-4 bg-[#fff] p-4`}>
                   
                   <View style={tw` bg-[#6c63ff]/90 flex-col items-center justify-center rounded-[22px] h-[110px] w-[100px]   `}>
                      <Text style={tw`text-[24px] text-white font-bold `}>{item.day}</Text>
@@ -115,10 +117,10 @@ const Tickets = () => {
                      <Text style={tw`font-bold text-xl text-gray-900`} className=" font-bold text-lg text-gray-900">{item.violation}:</Text>
                      <Text style={tw`text-[18px] text-gray-900 font-extrabold`} className=" text-[22px] text-gray-900 font-extrabold">{item.amount}</Text>
                      <View style={tw` flex-row gap-4 mt-4`}>
-                        <TouchableOpacity style={tw` bg-[#6c63ff]/90 rounded-full px-5 py-1  `}>
+                        <TouchableOpacity onPress={() => router.push("/(tabs)/tickets/details")} style={tw` bg-[#6c63ff]/90 rounded-full px-5 py-1  `}>
                            <Text style={tw`text-white text-sm `}>Pay</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={tw` border-2 border-gray-600 px-4 rounded-full `}>
+                        <TouchableOpacity onPress={() => router.push("/(tabs)/tickets/details")}  style={tw` border-2 border-gray-600 px-4 rounded-full `}>
                            <Text  style={tw`text-sm `}>Details</Text>
                         </TouchableOpacity>
                      </View>
