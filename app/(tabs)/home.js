@@ -36,7 +36,7 @@ const Home = () => {
                </View>
 
                <Link href={"./pay"}>
-                  <View style={tw`lex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24`} className=" flex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24">
+                  <View style={tw`flex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24`} className=" flex-row justify-center items-center border-2 rounded-[50px] border-white w-24 h-24">
                      <Text style={tw`text-white text-lg font-extrabold`} className="text-white text-lg font-extrabold">Pay</Text>
                   </View>
                </Link>
