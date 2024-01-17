@@ -1,4 +1,4 @@
-import { router, useRouter } from "expo-router";
+import { Redirect, router, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, Text, View, TouchableOpacity } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -29,6 +29,8 @@ const Page = () => {
          style={tw` flex-col bg-[#6c63ff]`}
          className=" min-h-screen bg-[#6c63ff]"
       >
+
+      <Redirect href={"/home"} />
          <View
             style={tw` justify-center min-h-[320px] mb-8 `}
             className="flex-1 justify-center"

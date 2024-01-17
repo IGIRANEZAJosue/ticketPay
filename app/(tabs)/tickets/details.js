@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import { router } from "expo-router";
 import tw from "twrnc"
 import { FontAwesome } from '@expo/vector-icons';
@@ -14,6 +14,7 @@ const Details = () => {
          </View>
 
          <Text style={tw`text-center font-medium text-2xl`}>Ticket Details will go here</Text>
+         <Image style={tw` h-[200px] w-[200px]`} source={require("../../../assets/ticket-svgrepo-com.svg")} />
 
       </View>
    );
