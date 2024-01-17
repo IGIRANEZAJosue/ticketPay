@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, Image, ScrollView, TouchableOpacity, Alert} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import tw from "twrnc";
 import { Link, router } from 'expo-router';
@@ -39,7 +39,7 @@ const Pay = () => {
                <Image source={require("../../assets/mastercard-logo-png.png")} />
             </View>
 
-            <TouchableOpacity style={tw` mt-4 w-full bg-[#6c63ff] flex-row justify-center rounded-xl py-4`}>
+            <TouchableOpacity style={tw` mt-4 w-full bg-[#6c63ff] flex-row justify-center rounded-xl py-4`} onPress={()=> Alert.alert("You have successfully paid all your tickets")}>
                <Text style={tw`text-white font-bold `}>Pay</Text>
             </TouchableOpacity>
 

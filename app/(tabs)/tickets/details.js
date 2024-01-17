@@ -13,7 +13,7 @@ const Details = () => {
             <View></View>
          </View>
 
-         <Text style={tw`text-center`}>Ticket details</Text>
+         <Text style={tw`text-center font-medium text-2xl`}>Ticket Details</Text>
 
       </View>
    );
