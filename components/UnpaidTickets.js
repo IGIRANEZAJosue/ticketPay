@@ -83,7 +83,7 @@ const UnpaidTickets = () => {
                )
             }
             keyExtractor={item => item.id}
-            estimatedItemSize={180}
+            estimatedItemSize={200}
 
          />
 

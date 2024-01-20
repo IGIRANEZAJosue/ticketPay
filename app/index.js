@@ -1,27 +1,33 @@
-import { Redirect, router, useRouter } from "expo-router";
+import { Redirect, router, useNavigation, useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Pressable, Text, View, TouchableOpacity } from "react-native";
+import { Pressable, Text, View, TouchableOpacity, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { TextInput, Checkbox } from "react-native-paper";
 import tw from "twrnc";
-import { loginUser } from "./database";
+import db from "./database";
 
 const Page = () => {
+   const navigation = useNavigation();
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
 
    const [passwordVisible, setPasswordVisible] = useState(true);
    const [checked, setChecked] = useState(false);
 
-   const handleLogin = async () => {
-      const user = await loginUser(username, password);
-      if (user) {
-         // Store user information (e.g., using state management)
-         router.replace("/home");
-      } else {
-         // Handle login error
-         console.log('Error logging in')
-      }
+   const handleLogin = () => {
+      db.transaction((tx) => {
+         tx.executeSql(
+            "SELECT * FROM users WHERE username = ? AND password = ?",
+            [username, password],
+            (_, { rows }) => {
+               if (rows.length > 0) {
+                  router.replace("/home");
+               } else {
+                  Alert.alert("Invalid username or password");
+               }
+            }
+         );
+      });
    };
 
    return (
@@ -29,8 +35,8 @@ const Page = () => {
          style={tw` flex-col bg-[#6c63ff]`}
          className=" min-h-screen bg-[#6c63ff]"
       >
+         {/*<Redirect href={"/home"} />*/}
 
-      <Redirect href={"/home"} />
          <View
             style={tw` justify-center min-h-[320px] mb-8 `}
             className="flex-1 justify-center"
@@ -62,7 +68,7 @@ const Page = () => {
             <TextInput
                label="Email"
                value={username}
-               onChangeText={setUsername}
+               onChangeText={(text) => setUsername(text)}
                mode="outlined"
                right={<TextInput.Icon icon="email-outline" color="#6c63ff" />}
                className=" mb-6 "
@@ -72,7 +78,7 @@ const Page = () => {
             <TextInput
                label="Password"
                value={password}
-               onChangeText={setPassword}
+               onChangeText={(text) => setPassword(text)}
                mode="outlined"
                secureTextEntry={passwordVisible}
                right={
@@ -146,4 +152,3 @@ const Page = () => {
 };
 
 export default Page;
-

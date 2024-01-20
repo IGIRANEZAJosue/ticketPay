@@ -1,67 +1,11 @@
-import * as SQLite from "expo-sqlite";
+import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase("ticketPay.db");
+const db = SQLite.openDatabase('mydb');
 
-export const createTable = async () => {
-   try {
-      await db.transaction((tx) => {
-         tx.executeSql(
-            "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)"
-         );
-      });
-   } catch (error) {
-      console.error(error);
-   }
-};
+db.transaction(tx => {
+  tx.executeSql(
+    'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, email TEXT, phone_number TEXT);'
+  );
+});
 
-export const registerUser = async (username, password) => {
-   try {
-      await db.transaction((tx) => {
-         tx.executeSql("INSERT INTO users (username, password) VALUES (?, ?)", [
-            username,
-            password,
-         ]);
-      });
-      return true; // Registration successful
-   } catch (error) {
-      console.error(error);
-      return false; // Registration failed
-   }
-};
-
-export const loginUser = async (username, password) => {
-   try {
-      const results = await db.transaction((tx) => {
-         return tx.executeSql(
-            "SELECT * FROM users WHERE username = ? AND password = ?",
-            [username, password]
-         );
-      });
-
-      if (results.rows.length > 0) {
-         return results.rows.item(0); // User found
-      } else {
-         return null; // Invalid credentials
-      }
-   } catch (error) {
-      console.error(error);
-      return null; // Login failed
-   }
-};
-
-export const fetchUserData = async () => {
-   try {
-      const results = await db.transaction((tx) => {
-         return tx.executeSql("SELECT * FROM users");
-      });
-
-      if (results.rows.length > 0) {
-         return results.rows.item(0); // Return the first user
-      } else {
-         return null; // No user found
-      }
-   } catch (error) {
-      console.error(error);
-      return null;
-   }
-};
+export default db;

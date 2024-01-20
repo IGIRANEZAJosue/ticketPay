@@ -13,8 +13,8 @@ const Details = () => {
             <View></View>
          </View>
 
-         <Text style={tw`text-center font-medium text-2xl`}>Ticket Details will go here</Text>
-         <Image style={tw` h-[200px] w-[200px]`} source={require("../../../assets/ticket-svgrepo-com.svg")} />
+         <Text style={tw`text-center font-medium text-2xl`}>Ticket Details</Text>
+         <Image style={tw` h-[100px] w-[100px]`} source={require("../../../assets/ticket-svgrepo-com.svg")} />
 
       </View>
    );
