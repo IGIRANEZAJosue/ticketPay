@@ -5,6 +5,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import { TextInput, Checkbox } from "react-native-paper";
 import tw from "twrnc";
 import db from "./database";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 const Page = () => {
    const navigation = useNavigation();
@@ -14,7 +16,7 @@ const Page = () => {
    const [passwordVisible, setPasswordVisible] = useState(true);
    const [checked, setChecked] = useState(false);
 
-   const handleLogin = () => {
+   const handleLogin = async () => {
       db.transaction((tx) => {
          tx.executeSql(
             "SELECT * FROM users WHERE username = ? AND password = ?",
@@ -22,12 +24,16 @@ const Page = () => {
             (_, { rows }) => {
                if (rows.length > 0) {
                   router.replace("/home");
+                  
                } else {
                   Alert.alert("Invalid username or password");
                }
             }
          );
       });
+
+      await AsyncStorage.setItem('userToken', 'hne4a9tjqn');
+
    };
 
    return (

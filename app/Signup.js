@@ -1,5 +1,5 @@
-import { router, useNavigation } from "expo-router";
-import React, { useState } from "react";
+import { router } from "expo-router";
+import React, { useEffect, useState } from "react";
 import {
    Pressable,
    Text,
@@ -11,8 +11,9 @@ import { TextInput, Checkbox } from "react-native-paper";
 import tw from "twrnc";
 import db from "./database";
 
+
 const Signup = () => {
-   const navigation = useNavigation();
+
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
    const [email, setEmail] = useState("");
@@ -180,3 +181,4 @@ const Signup = () => {
 };
 
 export default Signup;
+

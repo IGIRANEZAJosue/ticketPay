@@ -1,22 +1,26 @@
 import { useEffect } from "react";
-import { initDatabase } from "./database";
-const { Stack } = require("expo-router");
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const { Stack, router } = require("expo-router");
+
 
 const StackLayout = () => {
-   const [user, setUser] = useState(null);
 
    useEffect(() => {
-      const fetchUserAndRedirect = async () => {
-         const user = await fetchUserData();
-         setUser(user);
+      checkUserAuthentication();
+    }, []);
 
-         if (user) {
-            navigation.navigate("Home");
-         }
-      };
+    const checkUserAuthentication = async () => {
+      const userToken = await AsyncStorage.getItem('userToken');
+      
+      if (userToken) {
+        router.replace('/home');
+        console.log('User is already logged in');
+      } else {
+        console.log('User is not logged in');
+      }
+    };
 
-      fetchUserAndRedirect();
-   }, []);
 
    return (
       <Stack>

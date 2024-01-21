@@ -15,7 +15,7 @@ const Home = () => {
                TicketPay
             </Text>
 
-            <View style={tw` flex-row items-center bg-[#f0f3f5] rounded-2xl w-full p-4 mb-4 mx-4 shadow-sm`} className=" flex-row items-center bg-[#f0f3f5] rounded-2xl w-full p-4 mb-4 mx-4 shadow-sm">
+            <View style={tw` flex-row items-center bg-[#f0f3f5] rounded-[22px] w-full p-4 mb-4 mx-4 shadow-sm`} className=" flex-row items-center bg-[#f0f3f5] rounded-2xl w-full p-4 mb-4 mx-4 shadow-sm">
                <Image style={tw`mr-4`} className="mr-4" source={require("../../assets/julian-wan-unsplash-1.png")} />
                <View style={tw` flex-col justify-between `} className="flex-col justify-between">
                   <Text style={tw` font-bold text-2xl `} className=" font-bold text-2xl">IGIRANEZA Josue</Text>
@@ -23,7 +23,7 @@ const Home = () => {
                </View>
             </View>
 
-            <View style={tw` flex-row justify-between items-center bg-[#6c63ff] w-full p-4 mb-4 rounded-2xl `} className="flex-row justify-between items-center bg-primary w-full p-4 mb-4 rounded-2xl ">
+            <View style={tw` flex-row justify-between items-center bg-[#6c63ff] w-full p-[20px] mb-4 rounded-[22px] `} className="flex-row justify-between items-center bg-primary w-full p-4 mb-4 rounded-2xl ">
                <View style={tw`gap-1`} className=" space-y-1 ">
                   <Text style={tw`text-white/80 text-[20px] font-bold `} className="text-white/80 text-[20px] font-bold ">
                      Total in tickets
