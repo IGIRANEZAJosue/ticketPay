@@ -1,40 +1,77 @@
 import { Redirect, router, useNavigation, useRouter } from "expo-router";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Pressable, Text, View, TouchableOpacity, Alert } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { TextInput, Checkbox } from "react-native-paper";
 import tw from "twrnc";
 import db from "./database";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import axios from 'axios';
 
 const Page = () => {
-   const navigation = useNavigation();
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
+   const [error, setError] = useState(null)
 
    const [passwordVisible, setPasswordVisible] = useState(true);
    const [checked, setChecked] = useState(false);
 
    const handleLogin = async () => {
-      db.transaction((tx) => {
-         tx.executeSql(
-            "SELECT * FROM users WHERE username = ? AND password = ?",
-            [username, password],
-            (_, { rows }) => {
-               if (rows.length > 0) {
-                  router.replace("/home");
-                  
-               } else {
-                  Alert.alert("Invalid username or password");
-               }
-            }
+      // db.transaction((tx) => {
+      //    tx.executeSql(
+      //       "SELECT * FROM users WHERE username = ? AND password = ?",
+      //       [username, password],
+      //       (_, { rows }) => {
+      //          if (rows.length > 0) {
+      //             router.replace("/home");
+
+      //          } else {
+      //             Alert.alert("Invalid username or password");
+      //          }
+      //       }
+      //    );
+      // });
+      try {
+         const response = await axios.post(
+           'https://ticket-pay-api.onrender.com/V1/auth/login',
+           { email: username, password: password },
+           {
+             headers: {
+               'Content-Type': 'application/json',
+             },
+           }
          );
-      });
-
-      await AsyncStorage.setItem('userToken', 'hne4a9tjqn');
-
+       
+       
+         if (response.status === 200 &&response.data) {
+            
+           const data = response.data;
+           await AsyncStorage.setItem('userInfo', JSON.stringify(data));
+          await AsyncStorage.setItem("userToken", JSON.stringify(data.tokens));
+         //   setIsLoggedIn(true);
+         router.replace("/home");
+           setError(null)
+         } else {
+           setError('Invalid Credentials');
+         }
+       } catch (error) {
+        
+         setError('Invalid Credentials');
+       }
+       
    };
+   useEffect(()=>{
+      const getData = async ()=>{
+         const value = await AsyncStorage.getItem("userInfo");
+         const parsedValue = JSON.parse(value);
+         
+         if(parsedValue.user._id){
+            router.replace("/home")
+         }
+         
+      }
+      getData()
+   },[])
 
    return (
       <ScrollView
@@ -71,6 +108,9 @@ const Page = () => {
             style={tw` px-8 bg-white rounded-t-[32px] pt-10 pb-6`}
             className=" flex-2 px-8 bg-white rounded-t-[32px] pt-10 pb-6"
          >
+            {error&&(<Text style={tw`text-red-500 font-bold text-center text-lg`}> 
+            {error}
+             </Text>)}
             <TextInput
                label="Email"
                value={username}

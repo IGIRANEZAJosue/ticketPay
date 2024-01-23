@@ -15,10 +15,8 @@ const StackLayout = () => {
       
       if (userToken) {
         router.replace('/home');
-        console.log('User is already logged in');
-      } else {
-        console.log('User is not logged in');
-      }
+       
+      } 
     };
 
 

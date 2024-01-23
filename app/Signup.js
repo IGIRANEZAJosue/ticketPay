@@ -9,31 +9,57 @@ import {
 } from "react-native";
 import { TextInput, Checkbox } from "react-native-paper";
 import tw from "twrnc";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import db from "./database";
 
-
 const Signup = () => {
-
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
    const [email, setEmail] = useState("");
    const [phoneNumber, setPhoneNumber] = useState("");
+   const [id,setId]=useState("")
+   const[error, setError] = useState(null)
 
    const [passwordVisible, setPasswordVisible] = useState(true);
    const [checked, setChecked] = useState(false);
 
-   const handleRegister = () => {
-      db.transaction((tx) => {
-         tx.executeSql(
-            "INSERT INTO users (username, password, email, phone_number) VALUES (?, ?, ?, ?)",
-            [username, password, email, phoneNumber],
-            (_, { insertId }) => {
-               if (insertId) {
-                  router.replace("/home");
-               }
+   const handleRegister = async () => {
+      // db.transaction((tx) => {
+      //    tx.executeSql(
+      //       "INSERT INTO users (username, password, email, phone_number) VALUES (?, ?, ?, ?)",
+      //       [username, password, email, phoneNumber],
+      //       (_, { insertId }) => {
+      //          if (insertId) {
+      //             router.replace("/home");
+      //          }
+      //       }
+      //    );
+      // });
+
+      try {
+         const response = await fetch(
+            "https://ticket-pay-api.onrender.com/V1/auth/register",
+            {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify({ id:id,name:username, email:email, password:password, phone:phoneNumber }),
             }
          );
-      });
+         
+         const data = await response.json();
+         if (response.ok) {
+            await AsyncStorage.setItem("userInfo", JSON.stringify(data));
+            
+             router.replace("/home");
+         } else {
+            
+            setError("User already registered")
+         }
+      } catch (error) {
+         setError("User already registered")
+      }
    };
 
    return (
@@ -75,6 +101,18 @@ const Signup = () => {
             style={tw` px-8 bg-white rounded-t-[32px] pt-6 pb-6`}
             className=" flex-2 px-8 bg-white rounded-t-[32px] pt-6 pb-6"
          >
+             {error&&(<Text style={tw`text-red-500 font-bold text-center text-lg`}> 
+            {error}
+             </Text>)}
+             <TextInput
+               label="National Identity Number"
+               value={id}
+               onChangeText={(text) => setId(text)}
+               mode="outlined"
+               right={<TextInput.Icon icon="account" color="#6c63ff" />}
+               className=" mb-6 "
+               style={tw`mb-6 `}
+            />
             <TextInput
                label="Name"
                value={username}
@@ -181,4 +219,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

@@ -1,96 +1,62 @@
 import { FlashList } from "@shopify/flash-list";
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { View, StyleSheet, Text, ScrollView, TouchableOpacity, } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 import tw from "twrnc";
 import { router } from "expo-router";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button } from "react-native-paper";
+import dayjs from "dayjs";
 
 router
 
 const Tickets = () => {
+     const [alltickets,setAllTickets] = useState(null)
+  
+   useEffect(()=>{
+      const fetchData=async()=>{
+         const value = await AsyncStorage.getItem("userInfo");
+      const parsedValue = JSON.parse(value);
+         try {
+            const response = await fetch(
+               "https://ticket-pay-api.onrender.com/V1/ticket/all",
+               {
+                  method: "POST",
+                  headers: {
+                     "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ owner:parsedValue.user._id}),
+               }
+            );
+           
+            const data = await response.json();
+            if (data) {
+               
+               setAllTickets(data.tickets.map((ticket,index) =>({
+                  id: index,
+                  violation: ticket.name,
+                  licensePlate:ticket.vehicle,
+                  amount: ticket.amount,
+                  date: dayjs(ticket.createdAt).format("DD-MMM-yyyy"),
+                  day:dayjs(ticket.createdAt).format("DD"),
+                  month:dayjs(ticket.createdAt).format("MMM")
 
-   const TICKETS = [{
-      "id": 1,
-      "date": "29-Oct-2023",
-      "licenseplate": "RAE 619 A",
-      "violation": "Speeding",
-      "amount": "10,000 RWF",
-      "day": 17,
-      "month": "May"
-    }, {
-      "id": 2,
-      "date": "10-Jul-2023",
-      "licenseplate": "RAC 470 C",
-      "violation": "Parking Violation",
-      "amount": "10,000 RWF",
-      "day": 9,
-      "month": "Oct"
-    }, {
-      "id": 3,
-      "date": "07-Aug-2023",
-      "licenseplate": "RAE 619 A",
-      "violation": "Speeding",
-      "amount": "50,000 RWF",
-      "day": 2,
-      "month": "Jun"
-    }, {
-      "id": 4,
-      "date": "21-Feb-2023",
-      "licenseplate": "RAE 619 A",
-      "violation": "Reckless Driving",
-      "amount": "10,000 RWF",
-      "day": 20,
-      "month": "Oct"
-    }, {
-      "id": 5,
-      "date": "12-Aug-2023",
-      "licenseplate": "RAE 619 A",
-      "violation": "Running a Red Light",
-      "amount": "50,000 RWF",
-      "day": 5,
-      "month": "Aug"
-    }, {
-      "id": 6,
-      "date": "17-Jun-2023",
-      "licenseplate": "RAC 470 C",
-      "violation": "Parking Violation",
-      "amount": "50,000 RWF",
-      "day": 1,
-      "month": "Aug"
-    }, {
-      "id": 7,
-      "date": "07-Sep-2023",
-      "licenseplate": "RAC 470 C",
-      "violation": "Speeding",
-      "amount": "10,000 RWF",
-      "day": 18,
-      "month": "Jun"
-    }, {
-      "id": 8,
-      "date": "08-Feb-2023",
-      "licenseplate": "RAC 470 C",
-      "violation": "Reckless Driving",
-      "amount": "10,000 RWF",
-      "day": 13,
-      "month": "Jun"
-    }, {
-      "id": 9,
-      "date": "27-Oct-2023",
-      "licenseplate": "RAC 470 C",
-      "violation": "Reckless Driving",
-      "amount": "25,000 RWF",
-      "day": 2,
-      "month": "Feb"
-    }, {
-      "id": 10,
-      "date": "16-Jan-2023",
-      "licenseplate": "RAC 470 C",
-      "violation": "Speeding",
-      "amount": "25,000 RWF",
-      "day": 31,
-      "month": "Oct"
-    }]
+               
+
+
+
+               })))
+            } 
+         } catch (error) {
+            // .error("Error registering:", error);
+         }
+      }
+      
+         fetchData()
+    
+   },[])
+
+   
    
    
    return (
@@ -104,7 +70,7 @@ const Tickets = () => {
 
 
          <FlashList
-            data={TICKETS}
+            data={alltickets}
             renderItem={({item}) => (
                <View onPress={() => router.push("/(tabs)/tickets/details")} style={tw` h-[144px] flex-row mb-4 rounded-[16px] items-center w-full gap-4 bg-[#fff] p-4`}>
                   

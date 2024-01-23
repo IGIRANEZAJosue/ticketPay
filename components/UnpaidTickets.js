@@ -4,7 +4,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import tw from "twrnc";
 
-const UnpaidTickets = () => {
+const UnpaidTickets = ({tickets}) => {
 
    const TICKETS = [{
       id: 1,
@@ -72,7 +72,7 @@ const UnpaidTickets = () => {
       <View style={tw`w-full`} >
          <FlashList
             horizontal
-            data={TICKETS}
+            data={tickets}
             renderItem={({item}) => (
                <View style={tw`bg-[#f0f2f5] p-4 flex-col gap-1 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg `} className=" bg-[#f0f2f5] p-4 flex-col space-y-2 mr-4 mb-4 rounded-xl border-[#dddde2] w-[200px] shadow-lg ">
                   <Text style={tw` font-extrabold text-[24px] text-gray-900`} className=" font-extrabold text-[24px] text-gray-900">{item.licensePlate}</Text>
