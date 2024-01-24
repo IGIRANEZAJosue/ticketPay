@@ -21,15 +21,16 @@ export default () => {
             marginBottom: 4,
          }
       }}>
+      
 
          <Tabs.Screen
             name="home"
             options={{
                headerShown:false,
                tabBarIcon: ({ color, focused }) => (
-                  <Octicons
-                     name={focused ? "home" : "home"}
-                     size={26}
+                  <MaterialCommunityIcons
+                     name={focused ? "home-variant" : "home-variant-outline"}
+                     size={32}
                      color={color}
                   />
                ),
